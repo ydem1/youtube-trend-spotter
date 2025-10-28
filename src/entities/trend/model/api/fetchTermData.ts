@@ -48,10 +48,9 @@ export const fetchTermData = async (term: string) => {
       avgViews,
       totalLikes,
       avgLikes,
-      timeline: stats.map((v) => ({
-        date: v.date,
-        views: v.views,
-      })),
+      timeline: [...stats]
+        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+        .map((v) => ({ date: v.date, views: v.views })),
     };
   } catch (error) {
     console.error(`Error fetching data for ${term}:`, error);
