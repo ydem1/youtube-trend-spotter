@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useRoutes } from "react-router-dom";
-import { Compare, Home, NotFound } from "src/pages";
+import { Compare, History, Home, NotFound } from "src/pages";
 import { PATHNAMES } from "../config/routes";
 
 const ROUTES = [
@@ -11,6 +11,10 @@ const ROUTES = [
   {
     element: <Compare />,
     path: PATHNAMES.COMPARE,
+  },
+  {
+    element: <History />,
+    path: PATHNAMES.HISTORY,
   },
   {
     element: <NotFound />,

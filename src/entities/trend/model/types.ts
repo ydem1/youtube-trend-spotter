@@ -17,3 +17,9 @@ export interface MergedDataPoint {
   date: string;
   [term: string]: string | number;
 }
+
+export interface TrendHistoryItem {
+  termA: string;
+  termB: string;
+  date: string;
+}

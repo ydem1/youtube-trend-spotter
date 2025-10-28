@@ -2,13 +2,16 @@ import { FC } from "react";
 import { useAppSelector } from "src/shared/hooks/useAppSelector";
 import Animation from "src/shared/ui/Animation";
 import { useMergedData } from "../../model/hooks/useMergedData";
+import { selectorTermA, selectorTermB } from "../../model/selector";
 import { ChartsGraph } from "./ChartsGraph";
 import { ChartsHeader } from "./ChartsHeader";
 import { ChartsStats } from "./ChartsStats";
 import { NoDataYet } from "./NoDataYet";
 
 export const Charts: FC = () => {
-  const { termA, termB } = useAppSelector((s) => s.trend);
+  const termA = useAppSelector(selectorTermA);
+  const termB = useAppSelector(selectorTermB);
+
   const merged = useMergedData(termA, termB);
 
   const hasData = termA && termB;

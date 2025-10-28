@@ -1,7 +1,7 @@
 export const PATHNAMES = {
   HOME: "/",
   COMPARE: "/compare",
-  ABOUT: "/about",
+  HISTORY: "/history",
 
   NOT_FOUND: "/*",
 } as const;

@@ -34,7 +34,7 @@ export const Hero = () => (
         </Animation>
 
         <Animation variant="slide-right" delay={400}>
-          <Link to={PATHNAMES.ABOUT}>
+          <Link to={PATHNAMES.HISTORY}>
             <Button color="default" variant="outline">
               Learn More
             </Button>

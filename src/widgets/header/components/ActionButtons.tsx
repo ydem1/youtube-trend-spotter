@@ -9,9 +9,9 @@ interface Props {
 
 export const ActionButtons: FC<Props> = ({ className }) => (
   <div className={className}>
-    <Link to={PATHNAMES.ABOUT}>
+    <Link to={PATHNAMES.HISTORY}>
       <Button color="default" variant="ghost">
-        About
+        History
       </Button>
     </Link>
 

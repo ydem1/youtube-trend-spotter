@@ -21,9 +21,19 @@ export const fetchTrendsReducer = (
         termB: TrendStats | null;
       }>
     ) => {
+      const { termA, termB } = actions.payload;
+
       state.isLoading = false;
-      state.termA = actions.payload.termA;
-      state.termB = actions.payload.termB;
+      state.termA = termA;
+      state.termB = termB;
+
+      if (termA && termB) {
+        state.history.unshift({
+          termA: termA.term,
+          termB: termB.term,
+          date: new Date().toISOString(),
+        });
+      }
     }
   );
 

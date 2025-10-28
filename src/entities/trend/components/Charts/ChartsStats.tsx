@@ -11,7 +11,7 @@ export const ChartsStats = ({ terms }: Props) => (
         key={term.term}
         className="rounded-2xl border border-primary/10 bg-background/60 p-6 transition-all hover:bg-background/70"
       >
-        <h4 className="mb-2 text-lg font-semibold text-primary">{term.term}</h4>
+        <h4 className="mb-2">{term.term}</h4>
         <p className="text-sm text-default/60">
           Total Videos:{" "}
           <span className="font-medium text-default">
