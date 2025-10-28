@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchTrendsReducer } from "./reducers";
 import { TrendHistoryItem, TrendStats } from "./types";
 
@@ -20,6 +20,20 @@ export const trendSlice = createSlice({
   name: "trend",
   initialState,
   reducers: {
+    setTerms: (
+      state,
+      actions: PayloadAction<{
+        termA: TrendStats | null;
+        termB: TrendStats | null;
+      }>
+    ) => {
+      state.termA = actions.payload.termA;
+      state.termB = actions.payload.termB;
+    },
+    clearTerms: (state) => {
+      state.termA = null;
+      state.termB = null;
+    },
     clearHistory: (state) => {
       state.history = [];
     },
@@ -29,5 +43,5 @@ export const trendSlice = createSlice({
   },
 });
 
-export const { clearHistory } = trendSlice.actions;
+export const { setTerms, clearTerms, clearHistory } = trendSlice.actions;
 export default trendSlice.reducer;

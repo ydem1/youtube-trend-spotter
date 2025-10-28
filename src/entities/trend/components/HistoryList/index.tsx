@@ -1,16 +1,12 @@
 import { FC } from "react";
-import { useAppDispatch } from "src/shared/hooks/useAppDispatch";
-import { useAppSelector } from "src/shared/hooks/useAppSelector";
 import Animation from "src/shared/ui/Animation";
 import { Button } from "src/shared/ui/Button";
-import { selectorHistory } from "../../model/selector";
-import { clearHistory } from "../../model/slice";
+import { useTrendHistory } from "../../model/hooks/useTrendHistory";
 import { HistoryCard } from "./HistoryCard";
 import { HistoryEmpty } from "./HistoryEmpty";
 
 export const HistoryList: FC = () => {
-  const dispatch = useAppDispatch();
-  const history = useAppSelector(selectorHistory);
+  const { history, handleClearHistory, handleCompareAgain } = useTrendHistory();
 
   return (
     <section className="container py-12 md:py-24">
@@ -26,14 +22,19 @@ export const HistoryList: FC = () => {
       {history.length > 0 ? (
         <div className="mx-auto flex max-w-4xl flex-col gap-5">
           {history.map((item, i) => (
-            <HistoryCard key={item.date} {...item} index={i} />
+            <HistoryCard
+              key={item.date}
+              {...item}
+              index={i}
+              onCompareAgain={() => handleCompareAgain(item.termA, item.termB)}
+            />
           ))}
 
           <div className="mt-10 flex justify-center">
             <Button
               color="primary"
               variant="outline"
-              onClick={() => dispatch(clearHistory())}
+              onClick={handleClearHistory}
             >
               Clear history
             </Button>
