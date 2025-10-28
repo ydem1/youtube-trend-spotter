@@ -12,3 +12,8 @@ export interface TrendStats {
   avgLikes: number;
   timeline: TrendPoint[];
 }
+
+export interface MergedDataPoint {
+  date: string;
+  [term: string]: string | number;
+}
