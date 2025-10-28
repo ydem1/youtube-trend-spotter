@@ -1,0 +1,61 @@
+.animation {
+  transition: all 0.3s linear;
+
+  &.opacity {
+    opacity: 0;
+    visibility: hidden;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &.slide-bottom {
+    transform: translateY(20px);
+    visibility: hidden;
+    opacity: 0;
+
+    &.active {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &.slide-top {
+    transform: translateY(-20px);
+    visibility: hidden;
+    opacity: 0;
+
+    &.active {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &.slide-left {
+    transform: translateX(-20px);
+    visibility: hidden;
+    opacity: 0;
+
+    &.active {
+      transform: translateX(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &.slide-right {
+    transform: translateX(20px);
+    visibility: hidden;
+    opacity: 0;
+
+    &.active {
+      transform: translateX(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
