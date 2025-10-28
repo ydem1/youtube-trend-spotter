@@ -24,8 +24,10 @@ export const HistoryList: FC = () => {
           {history.map((item, i) => (
             <HistoryCard
               key={item.date}
-              {...item}
               index={i}
+              termA={item.termA.term}
+              termB={item.termB.term}
+              date={item.date}
               onCompareAgain={() => handleCompareAgain(item.termA, item.termB)}
             />
           ))}

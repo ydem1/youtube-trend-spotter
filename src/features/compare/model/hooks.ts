@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  clearTerms,
   selectorIsLoading,
   selectorTermA,
   selectorTermB,
@@ -41,12 +39,6 @@ export const useCompareForm = () => {
       })
     );
   };
-
-  useEffect(() => {
-    return () => {
-      dispatch(clearTerms());
-    };
-  }, [dispatch]);
 
   return { methods, onSubmit, isLoading };
 };

@@ -29,8 +29,8 @@ export const fetchTrendsReducer = (
 
       if (termA && termB) {
         state.history.unshift({
-          termA: termA.term,
-          termB: termB.term,
+          termA,
+          termB,
           date: new Date().toISOString(),
         });
       }

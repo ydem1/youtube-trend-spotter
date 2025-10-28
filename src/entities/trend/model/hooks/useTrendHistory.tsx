@@ -1,10 +1,14 @@
+import { useNavigate } from "react-router-dom";
+import { PATHNAMES } from "src/app/config/routes";
 import { useAppDispatch } from "src/shared/hooks/useAppDispatch";
 import { useAppSelector } from "src/shared/hooks/useAppSelector";
 import { selectorHistory } from "../selector";
-import { clearHistory } from "../slice";
+import { clearHistory, setTerms } from "../slice";
+import { TrendStats } from "../types";
 
 export const useTrendHistory = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const history = useAppSelector(selectorHistory);
 
@@ -12,8 +16,15 @@ export const useTrendHistory = () => {
     dispatch(clearHistory());
   };
 
-  const handleCompareAgain = (termA: string, termB: string) => {
-    console.log(termA, termB);
+  const handleCompareAgain = (termA: TrendStats, termB: TrendStats) => {
+    dispatch(
+      setTerms({
+        termA,
+        termB,
+      })
+    );
+
+    navigate(PATHNAMES.COMPARE);
   };
 
   return { history, handleClearHistory, handleCompareAgain };
