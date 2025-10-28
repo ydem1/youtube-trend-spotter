@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Source Husky hook
+. "$(dirname "$0")/_/husky.sh"
+
+# Introduction message
+echo '🛠️👷 Styling, testing, and building your project before committing...'
+
+# Check Prettier standards
+yarn check-format || (
+    echo 'Prettier check failed. Run yarn format, add changes, and try committing again.'
+    false
+)
+
+# Check ESLint standards
+yarn lint || (
+    echo 'ESLint check failed. Make the required changes listed above, add changes, and try committing again.'
+    false
+)
+
+# Check TypeScript standards
+yarn check-types || (
+    echo 'TypeScript type check failed. Please fix the issues mentioned above.'
+    false
+)
+
+# If all checks pass, allow the commit
+echo '✅ Ready to commit!'
+
