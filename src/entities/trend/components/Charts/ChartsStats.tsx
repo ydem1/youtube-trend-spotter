@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const ChartsStats = ({ terms }: Props) => (
-  <div className="mt-10 grid grid-cols-2 gap-6 text-center text-default/80">
+  <div className="mt-10 grid grid-cols-1 gap-6 text-center text-default/80 sm:grid-cols-2">
     {terms.map((term) => (
       <div
         key={term.term}

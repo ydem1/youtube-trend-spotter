@@ -14,8 +14,18 @@ export const useCompareForm = () => {
     mode: "onBlur",
   });
 
-  const onSubmit = ({ termA, termB }: CompareFormData) => {
-    dispatch(fetchTrendsAsync({ termA, termB }));
+  const onSubmit = async ({ termA, termB }: CompareFormData) => {
+    await dispatch(
+      fetchTrendsAsync({
+        termA,
+        termB,
+        onSuccess: () => {
+          document
+            .getElementById("charts")
+            ?.scrollIntoView({ behavior: "smooth" });
+        },
+      })
+    );
   };
 
   return { methods, onSubmit, isLoading };

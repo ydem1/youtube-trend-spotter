@@ -1,20 +1,24 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchTermData } from "./api/fetchTermData";
-import { TrendStats } from "./types";
 
 export const TREND_DATA_SLICE_NAME = "trend";
 
-export const fetchTrendsAsync = createAsyncThunk<
-  { termA: TrendStats | null; termB: TrendStats | null },
-  { termA: string; termB: string }
->(
-  `${TREND_DATA_SLICE_NAME}/fetchTrendsData`,
-  async ({ termA, termB }, { rejectWithValue }) => {
+interface FetchTrendsArgs {
+  termA: string;
+  termB: string;
+  onSuccess: () => void;
+}
+
+export const fetchTrendsAsync = createAsyncThunk(
+  `${TREND_DATA_SLICE_NAME}/fetchBlogPosts`,
+  async ({ termA, termB, onSuccess }: FetchTrendsArgs, { rejectWithValue }) => {
     try {
       const [dataA, dataB] = await Promise.all([
         fetchTermData(termA),
         fetchTermData(termB),
       ]);
+
+      onSuccess();
 
       return { termA: dataA, termB: dataB };
     } catch {

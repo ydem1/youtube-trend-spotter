@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const ChartsHeader = ({ termA, termB }: Props) => (
-  <Animation variant="fade-in" delay={200}>
+  <Animation variant="slide-top" delay={200}>
     <h4 className="mb-8 text-center">
       {termA} vs {termB}
     </h4>
