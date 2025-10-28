@@ -1,12 +1,14 @@
 import { ReactElement } from "react";
-import { RouterProvider } from "./providers";
+import { RouterProvider, StoreProvider } from "./providers";
 import AppRoutes from "./routes/Router";
 import "./styles/index.css";
 
 function App(): ReactElement {
   return (
     <RouterProvider>
-      <AppRoutes />
+      <StoreProvider>
+        <AppRoutes />
+      </StoreProvider>
     </RouterProvider>
   );
 }

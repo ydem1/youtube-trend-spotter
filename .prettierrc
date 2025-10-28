@@ -11,6 +11,7 @@
     "^react(.*)$",
     "<THIRD_PARTY_MODULES>",
     "^src/app/(.*)$",
+    "^src/entities/(.*)$",
     "^src/features/(.*)$",
     "^src/widgets/(.*)$",
     "^src/shared/(.*)$",
