@@ -1,1 +1,1 @@
-export const APP_NAME = "recommo";
+export const APP_NAME = "trend spotter";
